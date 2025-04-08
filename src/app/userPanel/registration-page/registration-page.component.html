@@ -1,0 +1,51 @@
+
+<app-user-header></app-user-header>
+
+<div class="commonForm">
+<div *ngIf="!showLogin">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Sign Up</mat-card-title>
+      </mat-card-header>
+      <form class="example-form" #userSignUp="ngForm" (ngSubmit)="UserCreate(userSignUp.value)">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" type="text" name="username"  ngModel >
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" type="text" name="email" ngModel>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" type="text" name="password" ngModel>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Phone Number" type="text" name="phone" ngModel>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-raised-button  color="primary" style="width: 150px;">Sign Up</button><br><br>
+        <p>Already Have Account?<a (click)="openLogin()">Click Here</a></p>
+      </form>
+    </mat-card>
+  </div>
+  <div *ngIf="showLogin">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <form class="example-form" #userLogin="ngForm" (ngSubmit)="login(userLogin.value)">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" type="text" name="username"  ngModel >
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" type="text" name="password" ngModel>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-raised-button  color="primary" style="width: 150px;">Login</button><br><br>
+        <p>Want to Create Account?<a (click)="openSignUp()">Click Here</a></p>
+      </form>
+    </mat-card>
+  </div>
+  </div><br><br>
+
+<app-user-footer></app-user-footer>

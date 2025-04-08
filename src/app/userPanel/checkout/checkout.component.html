@@ -1,0 +1,44 @@
+<app-user-header></app-user-header>
+
+<!-- Checkout Start -->
+
+<div class="container-fluid" style="background-color:cornsilk">
+    <div class="row px-xl-5">
+        <h1 class="text-center">Checkout Page</h1>
+        <h1 class="text-left">Billing Address</h1>
+        <mat-divider></mat-divider><br>
+        <div class="col-lg-8">
+            <div class=" p-30 mb-5">
+                <form #orderData="ngForm" (ngSubmit)="orderNow(orderData.value)">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Name</label>
+                            <input class="form-control" type="text" placeholder="write your full name" name="name" ngModel>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" type="text" placeholder="write your email" name="email" ngModel>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Mobile No</label>
+                            <input class="form-control" type="text" placeholder="write your phone no." name="contact" ngModel>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Address</label>
+                            <input class="form-control" type="text" placeholder="write your address" name="address" ngModel>
+                        </div><br><br>
+                        <div class="col-md-6 form-group"><br>
+                            <button style="height: 40px; width: 400px; background-color:aquamarine;" type="submit" ><h2>Order now</h2></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <h2>Total Amount : ৳ {{totalPrice}}</h2>
+            <h3>Payment Method : <b>Pay on delivery</b></h3>
+        </div>
+    </div>
+</div>
+<!-- Checkout End -->
+<app-user-footer></app-user-footer>
