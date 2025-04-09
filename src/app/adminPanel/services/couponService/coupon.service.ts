@@ -5,7 +5,8 @@ import { Coupon } from '../../models/coupon.model';
 
 const headerOption = {
   headers: new HttpHeaders({
-    'content-type': 'application/json'
+    'content-type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
   })
 };
 
@@ -13,7 +14,7 @@ const headerOption = {
   providedIn: 'root'
 })
 export class CouponService {
-  dataUrl = 'http://localhost:8080/coupon';
+  dataUrl = 'https://3a21-103-4-117-150.ngrok-free.app/coupon';
 
   panelOpenState = false;
 
@@ -58,7 +59,7 @@ export class CouponService {
   }
 
   coupCodeApply(data:string):Observable<Coupon>{
-    return this.http.get<Coupon>('http://localhost:8080/coupon/getByCouponCode?couponCode='+ data, headerOption).pipe(
+    return this.http.get<Coupon>('https://3a21-103-4-117-150.ngrok-free.app/coupon/getByCouponCode?couponCode='+ data, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })
@@ -66,7 +67,7 @@ export class CouponService {
   }
 
   getAllCouponDetails():Observable<Coupon[]>{
-    return this.http.get<Coupon[]>('http://localhost:8080/coupon/getAllCouponDetails', headerOption).pipe(
+    return this.http.get<Coupon[]>('https://3a21-103-4-117-150.ngrok-free.app/coupon/getAllCouponDetails', headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })

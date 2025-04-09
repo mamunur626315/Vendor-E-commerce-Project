@@ -10,23 +10,23 @@ export class OrderService {
   constructor( private http:HttpClient) { }
 
   orderNow(data:Order){
-    return this.http.post('http://localhost:8080/order/post',data);
+    return this.http.post('https://3a21-103-4-117-150.ngrok-free.app/order/post',data);
   }
 
   orderList() {
     let userStore = localStorage.getItem('user');
     let userData = userStore && JSON.parse(userStore);
-    return this.http.get<Order[]>('http://localhost:8080/order/getOrderList?userId=' + userData.id )
+    return this.http.get<Order[]>('https://3a21-103-4-117-150.ngrok-free.app/order/getOrderList?userId=' + userData.id )
  
   }
 
   getAllOrderList() {
-    return this.http.get<Order[]>('http://localhost:8080/order/getAllOrderList')
+    return this.http.get<Order[]>('https://3a21-103-4-117-150.ngrok-free.app/order/getAllOrderList')
  
   }
 
   updateStatus(id:number, status:string){
-    return this.http.post('http://localhost:8080/order/updateStatus?orderId=' + id+'&status='+status,{
+    return this.http.post('https://3a21-103-4-117-150.ngrok-free.app/order/updateStatus?orderId=' + id+'&status='+status,{
       observe: 'response'
     });
   }

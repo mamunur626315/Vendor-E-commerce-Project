@@ -7,14 +7,15 @@ import { Category } from '../../models/Category.model';
 
 const headerOption = {
   headers: new HttpHeaders({
-    'content-type': 'application/json'
+    'content-type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
   })
 };
 
 @Injectable()
 export class CategoryserviceService {
 
-  dataUrl = 'http://localhost:8080/category';
+  dataUrl = 'https://3a21-103-4-117-150.ngrok-free.app/category';
 
   panelOpenState = false;
 

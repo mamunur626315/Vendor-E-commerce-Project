@@ -6,7 +6,8 @@ import { Purchase } from '../../models/Purchase.model';
 
 const headerOption = {
   headers :new HttpHeaders({
-    'content-type':'application/json'
+    'content-type':'application/json',
+    'ngrok-skip-browser-warning':'true'
   })
 };
 
@@ -14,8 +15,8 @@ const headerOption = {
   providedIn: 'root'
 })
 export class PurchaseService {
-  dataUrl = 'http://localhost:8080/purchase';
-  dataUrl2 = 'http://localhost:8080/joinTable';
+  dataUrl = 'https://3a21-103-4-117-150.ngrok-free.app/purchase';
+  dataUrl2 = 'https://3a21-103-4-117-150.ngrok-free.app/joinTable';
 
   panelOpenState = false;
  

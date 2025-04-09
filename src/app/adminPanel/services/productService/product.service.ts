@@ -6,7 +6,8 @@ import { Product } from '../../models/product.mode';
 
 const headerOption = {
   headers: new HttpHeaders({
-    'content-type': 'application/json'
+    'content-type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
   })
 };
 
@@ -22,12 +23,12 @@ const headerOption2 = {
 export class ProductService {
   cartData1 = new EventEmitter<Product[] | []>();
 
-  dataUrl = 'http://localhost:8080/product'; // Example URL
+  dataUrl = 'https://3a21-103-4-117-150.ngrok-free.app/product'; // Example URL
 
 
-  dataUrl2 = 'http://localhost:8080/category';
+  dataUrl2 = 'https://3a21-103-4-117-150.ngrok-free.app/category';
 
-  dataUrl3 = 'http://localhost:8080/api/v1/productwithcatname';
+  dataUrl3 = 'https://3a21-103-4-117-150.ngrok-free.app/api/v1/productwithcatname';
 
 
   currentProduct: Product = new Product();

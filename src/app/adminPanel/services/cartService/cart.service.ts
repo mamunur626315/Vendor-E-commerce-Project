@@ -7,7 +7,8 @@ import { Product } from '../../models/product.mode';
 
 const headerOption = {
   headers: new HttpHeaders({
-    'content-type': 'application/json'
+    'content-type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
   })
 };
 
@@ -25,12 +26,12 @@ export class CartService {
   }
 
   addToCart(cartData: Cart) {
-    return this.http.post('http://localhost:8080/cart/post', cartData);
+    return this.http.post('https://3a21-103-4-117-150.ngrok-free.app/cart/post', cartData);
   }
 
   getCartList(userId: number) {
     return this.http
-      .get<Product[]>('http://localhost:8080/cart/getCartList?userId=' + userId, {
+      .get<Product[]>('https://3a21-103-4-117-150.ngrok-free.app/cart/getCartList?userId=' + userId, {
         observe: 'response',
       })
       .subscribe((result) => {
@@ -47,7 +48,7 @@ export class CartService {
 
   removeToCart(cartId:number): Observable<Cart> {
     console.warn("hit to removeCart/"+cartId)
-    return this.http.delete<Cart>('http://localhost:8080/cart/delete/' + cartId, headerOption).pipe(
+    return this.http.delete<Cart>('https://3a21-103-4-117-150.ngrok-free.app/cart/delete/' + cartId, headerOption).pipe(
       tap(() => {
         this.refreshNeeded.next();
       })
@@ -57,7 +58,7 @@ export class CartService {
   currentCart(){
     let userStore= localStorage.getItem('user');
     let userData = userStore && JSON.parse(userStore);
-    return this.http.get<Cart[]>('http://localhost:8080/cart/getCartList?userId=' + userData.id)
+    return this.http.get<Cart[]>('https://3a21-103-4-117-150.ngrok-free.app/cart/getCartList?userId=' + userData.id)
   }
 
 

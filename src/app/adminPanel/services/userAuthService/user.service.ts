@@ -14,7 +14,10 @@ invalidUserAuth= new EventEmitter<boolean>(false)
   constructor(private http: HttpClient, private router:Router) { }
 
   userSignUp(user:SignUp){
-   this.http.post("http://localhost:8080/signUp/post",user,{observe:'response'})
+   this.http.post("https://3a21-103-4-117-150.ngrok-free.app/signUp/post",user,{observe:'response',headers:{
+    'Content-Type':'application/json',
+    'ngrok-skip-browser-warning':'true'
+   }})
    .subscribe((result)=>{
     if(result){
       localStorage.setItem('user',JSON.stringify(result.body));

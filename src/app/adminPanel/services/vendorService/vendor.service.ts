@@ -5,7 +5,8 @@ import { Vendor } from '../../models/Vendor.model';
 
 const headerOption = {
   headers: new HttpHeaders({
-    'content-type': 'application/json'
+    'content-type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
   })
 };
 
@@ -13,7 +14,7 @@ const headerOption = {
   providedIn: 'root'
 })
 export class VendorService {
-  dataUrl = 'http://localhost:8080/vendor';
+  dataUrl = 'https://3a21-103-4-117-150.ngrok-free.app/vendor';
 
   panelOpenState = false;
 
